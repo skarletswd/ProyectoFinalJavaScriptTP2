@@ -23,8 +23,9 @@ header {
     /* justify-content: stretch; */
     align-items: center;
     border: solid .2px;
-    border-color: bisque;
-    box-shadow: 3px 3px 5px bisque;
+    border-color: black;
+    box-shadow: 3px 3px 5px black;
+    margin-bottom: 5px;
 }
 
 h1 {
@@ -34,19 +35,25 @@ h1 {
     text-shadow: .2px 1px rgb(8, 79, 82);
 }
 
+#pPrincipal {
+    padding: 20px;
+    color: darkcyan;
+    text-align:center;
+}
+
 main {
     grid-area: main;
     display: grid;
-    border: solid .2px bisque;
-    box-shadow: 3px 3px 5px bisque;
+    border: solid .2px;
+    border-color: black;
+    box-shadow: 3px 3px 5px black;
+    margin-bottom: 5px;
 }
 
-
-
-/* ul {
+ul {
     margin: 0;
     padding: 0;
-} */
+}
 
 li {
     padding: 1em;
@@ -55,15 +62,9 @@ li {
     grid-template-columns: 3fr 1fr;
 }
 
-#pPrincipal {
-    padding: 20px;
-    color: darkcyan;
-    text-align:center;
-}
-
 p {
-    text-align: center;
-    color: cadetblue;
+    text-align: left;
+    color: darkcyan;
     text-shadow: .2px 1px rgb(8, 79, 82);
 }
 
@@ -72,6 +73,11 @@ button {
     height: 20px;
     margin: auto;
     padding: 0;
+    border-radius: 10px;
+    background-color: aquamarine;
+    border-bottom-color: blue;
+    border-bottom-left-radius: 1px;
+    
 }
 
 /* h4 {
@@ -88,14 +94,14 @@ button {
     margin: 10px;
 } */
 
-a {
+/* a {
     display: inline;
-    /* padding: 1px; */
+    padding: 1px;
     text-align: center;
     text-decoration: none;
     color: darkcyan;
     text-shadow: .2px 1px rgb(8, 79, 82);
-}
+} */
 
 /* #aPrincipal{
     display: inline;
