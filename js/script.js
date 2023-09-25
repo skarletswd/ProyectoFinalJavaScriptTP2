@@ -11,7 +11,7 @@ console.log(paquetesTuristicos)
 
 const menuTur = document.querySelector(".paqsTur");
 for(let i=0; i<paquetesTuristicos.length; i++) {
-    menuTur.innerHTML += `<li><a href="#">${paquetesTuristicos[i]}</a></li>` 
+    menuTur.innerHTML += `<li><p>${paquetesTuristicos[i]}</p><button type="submit">+</button></li>` 
 }
 
 
