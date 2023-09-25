@@ -41,16 +41,16 @@ h1 {
     text-shadow: .2px 1px rgb(8, 79, 82);
 }
 
-ul {
+/* ul {
     margin: 0;
     padding: 0;
-}
+} */
 
 li {
     padding: 1em;
     display: grid;
-    grid-template-columns: 2fr 1fr 0.5fr;
-
+    /* grid-template-columns: 2fr 1fr 0.5fr; */
+    grid-template-columns: 1fr;
 }
 
 #pPrincipal {
@@ -67,15 +67,24 @@ h4 {
     text-shadow: .2px 1px rgb(8, 79, 82);
 }
 
-#pSecund {
+/* #pSecund {
     color: darkcyan;
     display: inline;
     margin: 10px;
+} */
+
+a {
+    display: inline;
+    /* padding: 1px; */
+    text-align: center;
+    text-decoration: none;
+    color: darkcyan;
+    text-shadow: .2px 1px rgb(8, 79, 82);
 }
 
-#aPrincipal{
+/* #aPrincipal{
     display: inline;
     padding: 1em;
     text-align: center;
     text-decoration: none;
-}
+} */
