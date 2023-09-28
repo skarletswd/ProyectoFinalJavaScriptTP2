@@ -1,18 +1,22 @@
 const paquetesTuristicos = [
-    "Cerro Chapelco: Amantes de la nieve",
-    "Navegación: Escapada medio día",
-    "Volcán Lanin: Lomás popular",
-    "Península Yuco: Paraíso terrenal",
-    "Rafting: Adictos a la adrenalina",
-    "Montaña: En bici medio día"
+    "1- Amantes de la nieve",
+    "2- Navegación relajante y cómoda",
+    "3- Montaña y naturaleza pura",
+    "4- Paraíso terrenal",
+    "5- Remo de travesía en familia",
+    "6- Bici, montaña y excelente vista panorámica"
 ];
 
 console.log(paquetesTuristicos)
 
 const menuTur = document.querySelector(".paqsTur");
-for(let i=0; i<paquetesTuristicos.length; i++) {
-    menuTur.innerHTML += `<li><p>${paquetesTuristicos[i]}</p><button type="submit">+</button></li>` 
-}
+paquetesTuristicos.forEach(paquete => {
+    menuTur.innerHTML += `<li><p>${paquete}</p><button type="submit">+</button></li>`
+});
+
+// for(let i=0; i<paquetesTuristicos.length; i++) {
+//     menuTur.innerHTML += `<li><p>${paquetesTuristicos[i]}</p><button type="submit">+</button></li>` 
+// }
 
 
 // const hSecund = document.createElement("h4");
