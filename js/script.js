@@ -16,7 +16,7 @@ paquetesTuristicos.forEach(paquete => {
 
 
 //reemplace mi funcion anterior por la asincronica await fetch
-
+const paqsTur = document.querySelector("#paqsTur");
 let contenidoProductos;
 
 const subirDetProdLocalStorage = async () => {
@@ -38,7 +38,28 @@ const subirDetProdLocalStorage = async () => {
     // contenidoProductos.forEach(mostrarProducto);
 }
 
+const mostrarProducto = (producto) => {
+    const productoHTML = `
+    <article id="${producto.codigo}">
+            <h2>${producto.descripcion}</h2>
+            <img src="${producto.imagen}" alt="">
+            <p>${producto.detalle}</p>
+            <p>${producto.precio}</p>
+            <p>${producto.puntuacion}</p>
+    </article>
+    `;
+}
+
+document.addEventListener("click", (event) => {
+    if (event.target.tagName == "BUTTON") {
+        sessionStorage.setItem("id", event.target.id);
+        window.location = "detalleProductos.html";
+    }
+});
+
 subirDetProdLocalStorage();
+
+
 
 
 
