@@ -7,7 +7,7 @@ const paquetesTuristicos = [
     "6- Bici, montaña y excelente vista panorámica"
 ];
 
-console.log(paquetesTuristicos)
+// console.log(paquetesTuristicos)
 
 const menuTur = document.querySelector(".paqsTur");
 paquetesTuristicos.forEach(paquete => {
@@ -17,23 +17,37 @@ paquetesTuristicos.forEach(paquete => {
 
 //reemplace mi funcion anterior por la asincronica await fetch
 
-let detalleProductos;
+let contenidoProductos;
 
 const subirDetProdLocalStorage = async () => {
-    detalleProductos = localStorage.getItem("detalleProductos");
+    contenidoProductos = localStorage.getItem("contenidoProductos");
     
-    if(detalleProductos == null) {
+    if(contenidoProductos == null) {
         const response = await fetch("json/contenidoProductos.json");
-        detalleProductos = await response.json();
+        contenidoProductos = await response.json();
 
-        localStorage.setItem("detalleProductos", JSON.stringify(detalleProductos));
+        localStorage.setItem("contenidoProductos", JSON.stringify(contenidoProductos));
+
+        console.log(contenidoProductos);
     }
 
-    if(typeof detalleProductos == "string") {
-        detalleProductos = JSON.parse(detalleProductos);
+    if(typeof contenidoProductos == "string") {
+        contenidoProductos = JSON.parse(contenidoProductos);
     }
 
+    // contenidoProductos.forEach(mostrarProducto);
 }
+
+subirDetProdLocalStorage();
+
+
+
+
+// const mostrarProducto = (producto) => {
+//     const productoHTML = 
+
+// }
+
 
 // almacenamiento en el localStorage sin funcion asincronica await fetch
 
