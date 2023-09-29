@@ -11,15 +11,19 @@ const paquetesTuristicos = [
 
 const menuTur = document.querySelector(".paqsTur");
 paquetesTuristicos.forEach(paquete => {
-    menuTur.innerHTML += `<li><p>${paquete}</p><button type="submit">+</button></li>`
+    menuTur.innerHTML += `<li><p>${paquete}</p><button data-id="" type="submit">+</button></li>`
 });
 
 
 //reemplace mi funcion anterior por la asincronica await fetch
-const paqsTur = document.querySelector("#paqsTur");
+
+const listaProductos = document.querySelector("#listaProductos");
 let contenidoProductos;
 
 const subirDetProdLocalStorage = async () => {
+
+    // listaProductos.innerHTML = "";
+
     contenidoProductos = localStorage.getItem("contenidoProductos");
     
     if(contenidoProductos == null) {
@@ -36,29 +40,32 @@ const subirDetProdLocalStorage = async () => {
     }
 
     // contenidoProductos.forEach(mostrarProducto);
-}
+};
 
-const mostrarProducto = (producto) => {
-    const productoHTML = `
-    <article id="${producto.codigo}">
-            <h2>${producto.descripcion}</h2>
-            <img src="${producto.imagen}" alt="">
-            <p>${producto.detalle}</p>
-            <p>${producto.precio}</p>
-            <p>${producto.puntuacion}</p>
-    </article>
-    `;
-}
 
-document.addEventListener("click", (event) => {
-    if (event.target.tagName == "BUTTON") {
-        sessionStorage.setItem("id", event.target.id);
-        window.location = "detalleProductos.html";
-    }
-});
+
+// const mostrarProducto = (producto) => {
+//     const productoHTML = `
+//     <article id="${producto.codigo}">
+//             <h2>${producto.descripcion}</h2>
+//             <img src="img/${producto.imagen}" alt="">
+//             <p>${producto.detalle}</p>
+//             <p>${producto.precio}</p>
+//             <p>${producto.puntuacion}</p>
+//     </article>
+//     `;
+
+//     listaProductos.innerHTML += productoHTML;
+// }
+
+// document.addEventListener("click", (event) => {
+//     if(event.target.tagName == "BUTTON"); {
+//         console.log(event.target.dataset.id);
+//         window.location = "detalleProductos.html";
+//     }
+// });
 
 subirDetProdLocalStorage();
-
 
 
 
