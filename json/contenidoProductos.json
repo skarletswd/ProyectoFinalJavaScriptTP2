@@ -22,7 +22,7 @@
         "detalle": "Llevarán a su pequeño grupo (máximo 15) al Parque Nacional haciendo varias paradas en el camino hasta llegar al Volcán Lanín y al Lago Huechulafquen. También visitarás el lago Paimun, la Capilla del Lago y podrás explorar el bosque. Aprenda todo sobre la naturaleza",
         "precio": 21300,
         "puntuacion": "****"
-    }
+    },
     {
         "codigo": 4,
         "descripcion": "Península Yuco",
@@ -30,7 +30,7 @@
         "detalle": "Espectacular bahía sobre el lago Lácar, con playas de arena ideales para balneario, aguas verde esmeralda y un entorno único de arrayanes.",
         "precio": 26500,
         "puntuacion": "*****"
-    }
+    },
     {
         "codigo": 5,
         "descripcion": "Lago Lácar",
@@ -38,7 +38,7 @@
         "detalle": "En los Lagos de la Patagonia Argentina, remando por extraordinarios lugares e inmerso en imponentes paisajes, podrás disfrutar de nuestras excursiones de recreación y entretenimiento o realizar una actividad puramente deportiva rodeado por la mejor naturaleza…tengas o no experiencia.",
         "precio": 10000,
         "puntuacion": "****"
-    }
+    },
     {
         "codigo": 6,
         "descripcion": "",
