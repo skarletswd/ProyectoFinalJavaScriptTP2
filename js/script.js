@@ -42,7 +42,7 @@ const subirDetProdLocalStorage = async () => {
     // contenidoProductos.forEach(mostrarProducto);
 };
 
-
+subirDetProdLocalStorage();
 
 // const mostrarProducto = (producto) => {
 //     const productoHTML = `
@@ -65,7 +65,7 @@ const subirDetProdLocalStorage = async () => {
 //     }
 // });
 
-subirDetProdLocalStorage();
+
 
 
 
