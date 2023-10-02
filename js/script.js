@@ -8,16 +8,18 @@ const paquetesTuristicos = [
 ];
 
 // console.log(paquetesTuristicos)
+let menuTur;
 
-const menuTur = document.querySelector(".paqsTur");
+menuTur = document.querySelector(".paqsTur");
 paquetesTuristicos.forEach(paquete => {
-    menuTur.innerHTML += `<li><p>${paquete}</p><button data-id="" type="submit">+</button></li>`
+    menuTur.innerHTML += `<li><p>${paquete}</p><button data-id="" type="button">+</button></li>`
 });
 
 
 //reemplace mi funcion anterior por la asincronica await fetch
 
-const listaProductos = document.querySelector("#listaProductos");
+// const listaProductos = document.querySelector("#listaProductos");
+
 let contenidoProductos;
 
 const subirDetProdLocalStorage = async () => {
@@ -29,34 +31,43 @@ const subirDetProdLocalStorage = async () => {
     if(contenidoProductos == null) {
         const response = await fetch("json/contenidoProductos.json");
         contenidoProductos = await response.json();
-
-        localStorage.setItem("contenidoProductos", JSON.stringify(contenidoProductos));
-
-        console.log(contenidoProductos);
+        localStorage.setItem("contenidoProductos", JSON.stringify(contenidoProductos));   
     }
 
     if(typeof contenidoProductos == "string") {
         contenidoProductos = JSON.parse(contenidoProductos);
     }
 
+    console.log(contenidoProductos);
+
     // contenidoProductos.forEach(mostrarProducto);
 };
 
 subirDetProdLocalStorage();
 
-// const mostrarProducto = (producto) => {
+
+//mostrar el detalle del producto en otro html
+
+// let mostrarProducto;
+
+// let detalleProducto = document.querySelector("#detalleProducto");
+
+// let listaDetalleProducto;
+
+// mostrarProducto = (producto => {
+//     listaDetalleProducto.innerHTML = "";
 //     const productoHTML = `
-//     <article id="${producto.codigo}">
-//             <h2>${producto.descripcion}</h2>
+//         <article>
+//             <h2 data-id="">${producto.descripcion}</h2>
 //             <img src="img/${producto.imagen}" alt="">
 //             <p>${producto.detalle}</p>
 //             <p>${producto.precio}</p>
 //             <p>${producto.puntuacion}</p>
-//     </article>
+//          </article>
 //     `;
 
-//     listaProductos.innerHTML += productoHTML;
-// }
+//     listaDetalleProducto.innerHTML + productoHTML;
+// });
 
 // document.addEventListener("click", (event) => {
 //     if(event.target.tagName == "BUTTON"); {
