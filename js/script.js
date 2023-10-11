@@ -12,7 +12,7 @@ let menuTur;
 
 menuTur = document.querySelector(".paqsTur");
 paquetesTuristicos.forEach(paquete => {
-    menuTur.innerHTML += `<li><p>${paquete}</p><button data-id="" type="button">+</button></li>`
+    menuTur.innerHTML += `<li><p>${paquete}</p><button data-id="${paquete.id}" type="button">+</button></li>`
 });
 
 
@@ -21,10 +21,11 @@ paquetesTuristicos.forEach(paquete => {
 // const listaProductos = document.querySelector("#listaProductos");
 
 let contenidoProductos;
+let detalleProducto;
 
 const subirDetProdLocalStorage = async () => {
-
-    // listaProductos.innerHTML = "";
+    
+    detalleProducto.innerHTML = "";
 
     contenidoProductos = localStorage.getItem("contenidoProductos");
     
@@ -38,12 +39,58 @@ const subirDetProdLocalStorage = async () => {
         contenidoProductos = JSON.parse(contenidoProductos);
     }
 
-    console.log(contenidoProductos);
+    // console.log(contenidoProductos);
 
-    // contenidoProductos.forEach(mostrarProducto);
+    contenidoProductos.forEach(crearProducto);
 };
 
+const crearProducto = (producto) => {
+    const productoHTML = `
+    <article>
+        <h2>${producto.descripcion}</h2>
+        <img src="img/${producto.imagen}">
+        <p>${producto.detalle}</p>
+        <p>${producto.precio}</p>
+        <p>${producto.puntuacion}</p>
+    </article>
+    `;
+
+    detalleProducto.innerHTML += productoHTML;
+};
+
+
 subirDetProdLocalStorage();
+
+
+document.addEventListener("click", (event) => {
+    if (event.target.tagName == "BUTTON") {
+      console.log(event.target.dataset.id);
+      sessionStorage.setItem("id", event.target.dataset.id);
+      window.location = "detalleProdductos.html";
+    }
+  });
+
+
+// detalleProducto = document.querySelector("#detalleProducto");
+// contenidoProductos.forEach(producto => {
+//     detalleProducto.innerHTML += `
+//         <article>
+//             <h2>${producto.descripcion}</h2>
+//             <img src="img/${producto.imagen}">
+//             <p>${producto.detalle}</p>
+//             <p>${producto.precio}</p>
+//             <p>${producto.puntuacion}</p>
+//         </article>
+//     `;
+// });
+
+
+// document.addEventListener("click", (event) => {
+//     if (event.target.tagName == "BUTTON")
+//     console.log(event.target.dataset.id);
+//     sessionStorage.setItem("id", event.target.dataset.id);
+//     window.location = "detalle.html";
+// });
 
 
 //mostrar el detalle del producto en otro html
@@ -75,8 +122,6 @@ subirDetProdLocalStorage();
 //         window.location = "detalleProductos.html";
 //     }
 // });
-
-
 
 
 

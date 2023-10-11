@@ -1,49 +1,92 @@
-let contenidoProductos;
+const valores = window.location.search;
+const urlParams = new URLSearchParams(valores);
+const idProducto = urlParams.get('id');
 
-const subirDetProdLocalStorage = async () => {
 
-    // listaProductos.innerHTML = "";
-
-    contenidoProductos = localStorage.getItem("contenidoProductos");
+function buscarProducto(){
+    let productos = localStorage.getItem("productos");
     
-    if(contenidoProductos == null) {
-        const response = await fetch("json/contenidoProductos.json");
-        contenidoProductos = await response.json();
+    if(productos != null){      
+         
+        productos = JSON.parse(productos);
 
-        localStorage.setItem("contenidoProductos", JSON.stringify(contenidoProductos));
-    }
+        let producto ="";
+        let html =""; 
 
-    if(typeof contenidoProductos == "string") {
-        contenidoProductos = JSON.parse(contenidoProductos);
-    }
+        productos.forEach(function(prod){
 
-    console.log(contenidoProductos);
+            if(prod.id == idProducto){
+                producto = prod;
+            }
+        })
+        if(producto != ""){
+              html +=  `
+              <article>
+                  <h2>${producto.id}<h2>${producto.descripcion}</h2>
+                  <img src="img/${producto.imagen}">
+                  <p>${producto.detalle}</p>
+                  <p>${producto.precio}</p>
+                  <p>${producto.puntuacion}</p>
+              </article>
+              `;
+              document.querySelector("#detalleProducto").innerHTML = html;  
+          }
+      }
+          
+  }
 
-    // contenidoProductos.forEach(mostrarProducto);
-};
-
-subirDetProdLocalStorage();
+  buscarProducto();
 
 
+
+// let contenidoProductos;
+// let detalleProducto;
+
+// const subirDetProdLocalStorage = async () => {
+
+//     // detalleProducto.innerHTML = "";
+
+//     contenidoProductos = localStorage.getItem("contenidoProductos");
+    
+//     if(contenidoProductos == null) {
+//         const response = await fetch("json/contenidoProductos.json");
+//         contenidoProductos = await response.json();
+
+//         localStorage.setItem("contenidoProductos", JSON.stringify(contenidoProductos));
+//     }
+
+//     if(typeof contenidoProductos == "string") {
+//         contenidoProductos = JSON.parse(contenidoProductos);
+//     }
+
+//     console.log(contenidoProductos);
+
+//     // contenidoProductos.forEach(mostrarProducto);
+// };
+
+
+// subirDetProdLocalStorage();
 
 // crear el producto q se va a mostrar
 
-// let mostrarProducto;
 
-// let productoHTML;
 
-let detalleProducto;
 
-detalleProducto = document.querySelector(".detalleProducto");
-contenidoProductos.forEach(producto => {
-    detalleProducto.innerHTML += `
-        <article>
-            <h2>${producto.descripcion}</h2>
-            <img src="img/${producto.imagen}">
-            <p>${producto.detalle}</p>
-            <p>${producto.precio}</p>
-            <p>${producto.puntuacion}</p>
-        </article>
-    `;
-});
+
+// detalleProducto = document.querySelector("#detalleProducto");
+// contenidoProductos.forEach(producto => {
+//     detalleProducto.innerHTML += `
+//         <article>
+//             <h2>${producto.descripcion}</h2>
+//             <img src="img/${producto.imagen}">
+//             <p>${producto.detalle}</p>
+//             <p>${producto.precio}</p>
+//             <p>${producto.puntuacion}</p>
+//         </article>
+//     `;
+// });
+
+// document.addEventListener("click", (event) => {
+//     console.log(event.target);
+// });
 
